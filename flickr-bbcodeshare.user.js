@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name          Flickr Beta BBCode Creator
+// @name          Flickr BBCode Creator
 // @namespace     http://github.com/jufemaiz/jmc_flickr_gm_flickr-bbcodeshare
 // @description   Provide BBCode for Flickr's new beta page
 // @include       http://*flickr.com/photos/*
@@ -59,13 +59,12 @@ var $;
 		
 		// Update the event management for the select
 		$('select#sharing_size', bbcodeShare).change(function(){
-			var type = {'Square' : '-sq','Thumbnail':'-t','Small':'-s','Medium':'','Medium 640':'-z','Large':'-b','Original':'-o'};
-			$("option:selected", this).each(function() {							
+			var type = {'Square' : '-sq','Thumbnail':'-t','Small':'-s','Medium':'','Medium 640':'-z','Large':'-l','Original':'-o'};
+			$("option:selected", this).each(function() {
 				var option = $(this);
 				var bbShareId = '#share-menu-options-embed-textarea' + type[option.attr('value')];
 				$('#share-menu-options-embed-bbcode textarea.embed-markup:visible').hide();
 				$('#share-menu-options-embed-bbcode textarea.embed-markup' + bbShareId).show();
 			});
-		});
-		
+		});	
 	}
